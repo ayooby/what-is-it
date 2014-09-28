@@ -1,0 +1,75 @@
+body{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	direction: rtl;
+}
+body:after {
+	display: none;
+	content: 'big';
+}
+.clearfix{
+	clear: both;
+}
+#main{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+	height: 1325px;
+}
+
+.isotope, .isotope .isotope-item {
+	-webkit-transition-duration: 0.8s;
+	-moz-transition-duration: 0.8s;
+	-ms-transition-duration: 0.8s;
+	-o-transition-duration: 0.8s;
+	transition-duration: 0.8s;
+}
+
+
+.post {
+	float: left;
+	border: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 25%;
+	width: 25%\0/;
+
+	-webkit-filter: grayscale(40%);
+	filter: grayscale(40%);
+	-webkit-transition: all ease .2s;
+	-moz-transition: all ease .2s;
+	-o-transition: all ease .2s;
+	-ms-transition: all ease .2s;
+}
+
+.posts .post.active,
+.posts .post:hover{
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
+
+.post .post-thumbnail {
+	position: relative;
+	margin: 0;
+}
+
+.post .post-thumbnail a {
+	display: block;
+}
+
+.post img {
+	display: block;
+	max-width: none;
+	width: 102.5%;
+	width: 100%(0/);
+	float: left;
+	-webkit-transition: all ease .2s;
+	-moz-transition: all ease .2s;
+	-o-transition: all ease .2s;
+	-ms-transition: all ease .2s;
+}
