@@ -46,11 +46,11 @@ return array(
 
 	'connections' => array(
 
-		'sqlite' => array(
+		/*'sqlite' => array(
 			'driver'   => 'sqlite',
 			'database' => __DIR__.'/../database/production.sqlite',
 			'prefix'   => '',
-		),
+		),*/
 
 		'mysql' => array(
 			'driver'    => 'mysql',
@@ -63,7 +63,7 @@ return array(
 			'prefix'    => '',
 		),
 
-		'pgsql' => array(
+		/*'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
 			'database' => 'forge',
@@ -81,7 +81,7 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'prefix'   => '',
-		),
+		),*/
 
 	),
 
