@@ -1,75 +1,59 @@
 body{
-	padding: 0;
 	margin: 0;
+	padding: 0;	
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.img{
+	width: 100%;
+}
+article.post .content-wrapper{
+	position: relative;
+}
+
+article.post .post-view {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: white;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	text-shadow: none;
+	-webkit-tap-highlight-color: transparent;
 	height: 100%;
 	width: 100%;
-	direction: rtl;
-}
-body:after {
-	display: none;
-	content: 'big';
-}
-.clearfix{
-	clear: both;
-}
-#main{
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-	position: relative;
-	height: 1325px;
+	background-color: rgba(17,17,17,.95);
 }
 
-.isotope, .isotope .isotope-item {
-	-webkit-transition-duration: 0.8s;
-	-moz-transition-duration: 0.8s;
-	-ms-transition-duration: 0.8s;
-	-o-transition-duration: 0.8s;
-	transition-duration: 0.8s;
+article.post.hover .post-view,
+article.post:hover .post-view {
+	opacity: .95;
+	filter: alpha(opacity=95);
 }
 
-
-.post {
-	float: left;
-	border: none;
-	margin: 0;
-	padding: 0;
-	position: relative;
-	width: 25%;
-	width: 25%\0/;
-
-	-webkit-filter: grayscale(40%);
-	filter: grayscale(40%);
-	-webkit-transition: all ease .2s;
-	-moz-transition: all ease .2s;
-	-o-transition: all ease .2s;
-	-ms-transition: all ease .2s;
+article.post .single-post button:hover,
+article.post .single-post button:active,
+article.post .single-post button{
+	outline: none;
 }
 
-.posts .post.active,
-.posts .post:hover{
-	-webkit-filter: grayscale(0%);
-	filter: grayscale(0%);
+.play{
+	width: 80px;
+	height: 80px;
+	display: inline-block;
+	cursor: pointer;
+	background-image: url(../img/play.png);
+	background-size: cover;
 }
-
-.post .post-thumbnail {
-	position: relative;
-	margin: 0;
-}
-
-.post .post-thumbnail a {
-	display: block;
-}
-
-.post img {
-	display: block;
-	max-width: none;
-	width: 102.5%;
-	width: 100%(0/);
-	float: left;
-	-webkit-transition: all ease .2s;
-	-moz-transition: all ease .2s;
-	-o-transition: all ease .2s;
-	-ms-transition: all ease .2s;
+.play.playing{
+	background-image: url(../img/stop.png);
 }
