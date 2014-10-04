@@ -3,78 +3,41 @@
 <head>
 	<meta charset="UTF-8">
 	<title>What is it</title>
+	{{ HTML::style('http://getbootstrap.com/dist/css/bootstrap.min.css') }}
 	{{ HTML::style('css/style.css') }}
-	{{ HTML::style('css/responsive.css') }}
 </head>
+<style>
+
+</style>
 <body>
-	<div id="main">
-		<section class="posts">
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-01.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-02.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-03.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-04.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-05.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-06.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-07.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-08.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-09.jpg" alt=""></a></div>
-				</div>
-			</article>
-			<article class="post">
-				<div class="content-wrapper">
-					<div class="post-thumbnail clearfix"><a href="#"><img src="img/p-10.jpg" alt=""></a></div>
-				</div>
-			</article>
-		</section>
+<div id="main" class="container-fluid"></div>
+
+
+
+<script type="text/template" id="post-template">
+	<div class="content-wrapper">
+		<div class="post-thumbnail clearfix">
+			<img class="img" src="img/<%= image %>" alt="<%= title %>">
+			<div class="post-view">
+				<h1><%= title %></h1>
+				<ul class="tags">
+					<% _.each(tags, function(tag) { %>
+						<li><%= tag.name %></li>
+					<% }); %>
+				</ul>
+				<span class="play"></span>
+				<a href="#/posts/<%= id %>" class="single-post">
+					<button class="btn btn-danger">Details</button>
+				</a>
+			</div>
+		</div>
 	</div>
+</script>
 
-
-
-
-
-
-	{{ HTML::script('js/jquery.js') }}
-	{{ HTML::script('js/jquery-migrate.min.js') }}
-	{{ HTML::script('js/jquery.isotope.min.js') }}
-	{{ HTML::script('js/script.js') }}
-	<script type="text/javascript">
-		var $=jQuery;
-		$().ready(function(){
-		});
-	</script>
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js') }}
+{{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js') }}
+{{ HTML::script('//underscorejs.org/underscore.js') }}
+{{ HTML::script('//backbonejs.org/backbone.js') }}
+{{ HTML::script('js/main.js') }}
 </body>
 </html>
