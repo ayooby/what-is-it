@@ -44,9 +44,9 @@ class TagsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($name)
 	{
-		return Tag::find($id);
+		return Tag::whereName($name)->get();
 	}
 
 

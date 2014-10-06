@@ -22,7 +22,7 @@
 				<h1><%= title %></h1>
 				<ul class="tags">
 					<% _.each(tags, function(tag) { %>
-						<li><%= tag.name %></li>
+						<li><a href="#/tags/<%= tag.name %>"><%= tag.name %></a></li>
 					<% }); %>
 				</ul>
 				<span class="play"></span>
