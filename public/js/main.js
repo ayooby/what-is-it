@@ -94,12 +94,15 @@ var z;
 			this.$el.addClass('hover');
 			$(e.target).addClass('playing');
 			console.log('playing "'+ this.model.get('audio')+'"');
+			this.model.audio = new Audio('/audios/'+this.model.get('audio'));
+			this.model.audio.play();
 		},
 		stop: function(e){
 			e.stopPropagation();
 			this.$el.removeClass('hover');
 			$(e.target).removeClass('playing');
 			console.log('Stoped"'+ this.model.get('audio')+'"')
+			this.model.audio.pause();
 		},
 		showSinglePost: function(e){
 			e.stopPropagation();
