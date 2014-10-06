@@ -40,9 +40,9 @@ class CreateForiegnkeys extends Migration {
 		Schema::table('posts', function(Blueprint $table){
 			$table->dropForeign('posts_user_id_foreign');
 		});
-		Schema::table('post_tags', function(Blueprint $table){
-			$table->dropForeign('post_tags_post_id_foreign');
-			$table->dropForeign('post_tags_tag_id_foreign');
+		Schema::table('post_tag', function(Blueprint $table){
+			$table->dropForeign('post_tag_post_id_foreign');
+			$table->dropForeign('post_tag_tag_id_foreign');
 		});
 	}
 

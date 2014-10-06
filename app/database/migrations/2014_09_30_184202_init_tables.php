@@ -52,7 +52,7 @@ class InitTables extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('post_tags');
+		Schema::drop('post_tag');
 		Schema::drop('tags');
 		Schema::drop('posts');
 		Schema::drop('users');

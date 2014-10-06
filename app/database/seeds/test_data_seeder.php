@@ -4,7 +4,7 @@ class TestDataSeeder extends Seeder{
 	public function run()
 	{
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-		DB::table('post_tags')->truncate();
+		DB::table('post_tag')->truncate();
 		DB::table('tags')->truncate();
 		DB::table('posts')->truncate();
 		DB::table('users')->truncate();
@@ -87,7 +87,7 @@ class TestDataSeeder extends Seeder{
 			]
 		]);
 		
-		DB::table('post_tags')->insert([
+		DB::table('post_tag')->insert([
 			['post_id'=> 1, 'tag_id'=> 1],
 			['post_id'=> 1, 'tag_id'=> 4],
 			['post_id'=> 2, 'tag_id'=> 4],
