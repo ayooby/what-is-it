@@ -10,7 +10,26 @@
 
 </style>
 <body>
-<div id="main" class="container-fluid"></div>
+	
+	<nav class="navbar" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Brand</a>
+			</div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					@if(Auth::check())
+						<li class="logout"><a href="/users/logout">Logout ({{Auth::user()->email}})</a></li>
+					@else
+						<li class="login-fb"><a href="/users/login/fb">Facebook Login</a></li>
+						<li class="login-tw"><a href="/users/login/tw">Twitter Login</a></li>
+					@endif
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="main" class="container-fluid"></div>
 
 
 
@@ -37,7 +56,10 @@
 {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js') }}
 {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js') }}
 {{ HTML::script('//underscorejs.org/underscore.js') }}
+{{ HTML::script('//connect.facebook.net/en_US/all.js') }}
 {{ HTML::script('//backbonejs.org/backbone.js') }}
+
+{{ HTML::script('/js/backbone.api.facebook.js') }}
 {{ HTML::script('js/main.js') }}
 </body>
 </html>

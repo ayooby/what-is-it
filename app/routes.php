@@ -10,8 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/', ['as'=> 'home', 'uses' => 'HomeController@showIndex']);
 Route::resource('posts', 'PostsController');
 Route::resource('tags', 'TagsController');
+Route::controller('users', 'UsersController', [
+	'getLogin'	=> 'user.login',
+	'getLogout'	=> 'user.logout',
+	]);
 Route::get('/', function()
 {
 	return View::make('hello');

@@ -12,6 +12,10 @@ body{
 .img{
 	width: 100%;
 }
+
+nav.navbar{
+	margin: 0;
+}
 article.post .content-wrapper{
 	position: relative;
 }
