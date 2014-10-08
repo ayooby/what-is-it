@@ -27,6 +27,14 @@ return array(
             'scope'         => ['email'],
         ],
 
+		/**
+		 * Twitter
+		 */
+        'Twitter' => [
+        	'client_id'     => 'QWyZMLmK6eEqiKziTeddoGmrc',
+        	'client_secret'  => 'gDqzAxGPZFPdn8WuXhKeASbK6DkRLOuCqIK3PlGssxMZaChgHx',
+        ],
+
 	]
 
 );

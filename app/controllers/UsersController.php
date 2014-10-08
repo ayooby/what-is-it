@@ -55,14 +55,14 @@ class UsersController extends \BaseController {
 
 			$result = json_decode( $fb->request( '/me' ), true );
 
-			$id          = $result['id'];
-			$name        = $result['name'];
-			$email       = $result['email'];
-			$gender      = $result['gender'];
-			$timezone    = $result['timezone'];
-			$username    = str_random(10);
-			$password    = Hash::make(str_random(20));
-			$confirmed   = true;
+			$id         = $result['id'];
+			$name       = $result['name'];
+			$email      = $result['email'];
+			$gender     = $result['gender'];
+			$timezone   = $result['timezone'];
+			$username   = str_random(10);
+			$password   = Hash::make(str_random(20));
+			$confirmed  = true;
 			
 			$user = User::where(['email'=>$email])->first();
 			
@@ -70,6 +70,7 @@ class UsersController extends \BaseController {
 			
 				$user = User::create([
 					'email'    => $email,
+					'name'     => $name,
 					'username' => $username,
 					'password' => $password,
 					'confirmed'=> $confirmed,
@@ -99,6 +100,56 @@ class UsersController extends \BaseController {
 	public function twitter()
 	{
 		return App::abort(500, 'Twitter login is not implemented yet!');
+		
+		$token = Input::get( 'oauth_token' );
+		
+		$verify = Input::get( 'oauth_verifier' );
+		
+		$tw = OAuth::consumer( 'Twitter' );
+		
+		if ( !empty( $token ) && !empty( $verify ) ) {
+
+			$token = $tw->requestAccessToken( $token, $verify );
+
+			$result = json_decode( $tw->request( 'account/verify_credentials.json' ), true );
+			dd($result);
+			
+			$id         = $result['id_str'];
+			$name       = $result['name'];
+			$email      = ''; //not presented
+			$gender     = ''; //not presented
+			$timezone   = $result['time_zone'];// or utc_offset?
+			$username   = str_random(10);
+			$password   = Hash::make(str_random(20));
+			$confirmed  = true;
+			
+			$user = User::where(['email'=>$email])->first();
+			
+			if(!$user){
+			
+				$user = User::create([
+					'email'    => $email,
+					'name'     => $name,
+					'username' => $username,
+					'password' => $password,
+					'confirmed'=> $confirmed,
+					]);
+
+			}
+
+			Auth::login($user);
+
+			return Redirect::home();
+
+		} else {
+
+			$reqToken = $tw->requestRequestToken();
+			
+			$url = $tw->getAuthorizationUri(array('oauth_token' => $reqToken->getRequestToken()));
+			
+			return Redirect::to( (string)$url );
+
+		}
 	}
 
 }

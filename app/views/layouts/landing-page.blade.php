@@ -19,7 +19,7 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					@if(Auth::check())
-						<li class="logout"><a href="/users/logout">Logout ({{Auth::user()->email}})</a></li>
+						<li class="logout"><a href="/users/logout">Logout ({{Auth::user()->name}})</a></li>
 					@else
 						<li class="login-fb"><a href="/users/login/fb">Facebook Login</a></li>
 						<li class="login-tw"><a href="/users/login/tw">Twitter Login</a></li>
