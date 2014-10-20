@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::when('*', 'auth', ['post', 'put', 'delete']);
 Route::get('/', ['as'=> 'home', 'uses' => 'HomeController@showIndex']);
 Route::resource('posts', 'PostsController');
 Route::resource('tags', 'TagsController');

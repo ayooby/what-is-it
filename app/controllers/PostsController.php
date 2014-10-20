@@ -20,7 +20,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('hello');
 	}
 
 
@@ -37,6 +37,10 @@ class PostsController extends \BaseController {
 		$post = new Post($inputs);
 		$post->user_id = $user->id;
 		$post->save();
+
+		foreach ($inputs['tags'] as $tag){
+			$post->tags()->attach( Tag::firstOrCreate(['name'=>$tag]) );
+		}
 
 		return $post;
 	}
